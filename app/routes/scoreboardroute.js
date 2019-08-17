@@ -1,7 +1,7 @@
 import scoreRouteController from '../controllers/scoreboardcontroller';
 
-const SCOREROUTE = app => {
+const scoreRoute = app => {
     app.route('/getAllScores').get(scoreRouteController.getAllScores);
 };
 
-export { SCOREROUTE };
+export default { scoreRoute };
