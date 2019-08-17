@@ -4,4 +4,4 @@ const scoreRoute = app => {
     app.route('/getAllScores').get(scoreRouteController.getAllScores);
 };
 
-export default { scoreRoute };
+export { scoreRoute };
