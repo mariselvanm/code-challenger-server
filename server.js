@@ -1,4 +1,4 @@
-import { scoreRoute } from './app/routes/scoreboardroute';
+import ScoreRoute from './app/routes/scoreboardroute';
 import express from 'express';
 import bodyParser from 'body-parser';
 import mysql from 'mysql';
@@ -23,5 +23,6 @@ console.log('API server started on: ' + port);
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-scoreRoute(app);
+ScoreRoute.scoreRoute(app);
 
+export default app;
