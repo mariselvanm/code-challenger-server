@@ -2,7 +2,7 @@ import scoreRouteController from '../controllers/scoreboardcontroller';
 
 class ScoreRoute {
     static scoreRoute = app => {
-        app.route('/getAllScores').get(scoreRouteController.getAllScores);
+        app.route('/api/getAllScores').get(scoreRouteController.getAllScores);
     };
 };
 
