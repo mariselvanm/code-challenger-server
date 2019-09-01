@@ -28,4 +28,20 @@ app.use(bodyParser.json());
 app.use(cors());
 ScoreRoute.scoreRoute(app);
 
+/**
+ * Error handling parts are manged here
+ * At the end of all route definition is end.
+ * Source :
+ * https://davidburgos.blog/how-to-handle-404-and-500-errors-on-expressjs/
+ */
+// 404
+app.use(function(req, res, next) {
+    return res.status(404).send({ message: 'Route'+req.url+' Not found.' });
+});
+  
+// 500 - Any server error
+app.use(function(err, req, res, next) {
+    return res.status(500).send({ error: err });
+});
+
 export default app;
