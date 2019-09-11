@@ -1,4 +1,6 @@
 import ScoreRoute from './app/routes/scoreboardroute';
+import SignUp from './app/routes/signUp';
+import Login from './app/routes/login';
 import express from 'express';
 import bodyParser from 'body-parser';
 import mysql from 'mysql';
@@ -26,6 +28,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 // Enable all CORS request
 app.use(cors());
+
+Login.login(app);
+SignUp.signUp(app);
 ScoreRoute.scoreRoute(app);
 
 /**
