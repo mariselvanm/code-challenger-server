@@ -1,3 +1,8 @@
+/**
+ * Author : Mariselvan
+ * Server js for starting the server
+ * Attache every route to the app
+ */
 import ScoreRoute from './app/routes/scoreboardroute';
 import express from 'express';
 import bodyParser from 'body-parser';
