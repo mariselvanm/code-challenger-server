@@ -11,10 +11,9 @@ class LoginController {
             if (err) {
                 res.send(err);
             }
+            
             res.send(response);
         });
-
-       // res.send({msg:"okasd"});
     };
 };
 

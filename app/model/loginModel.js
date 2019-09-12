@@ -1,14 +1,23 @@
 import { db } from './db';
 import BcryptInstance from '../helpers/bcryptEncript';
+import JwtModule from '../helpers/jwtToken';
 
 class LoginModel {
     getJWTToken = (authDetails, callback) => {
         this.checkValidEmailID(authDetails.emailId).then( response => {
             BcryptInstance.compareHash(authDetails.password, response[0].password).then(res => {
-                // TODO : Generate jwt token
-                callback(false, res);
+                let userDetail = {
+                    id: response[0].id,
+                    username: response[0].username,
+                    emailid: response[0].emailid,
+                };
+
+                JwtModule.jwtTokenGenerate(userDetail).then( jwtToken => {
+                    callback(false, {authtoken: jwtToken});
+                }).catch( err => {
+                    callback({err: `Can't generate jwt token`})
+                });
             }).catch( err => {
-                // TODO : send Err to callback
                 callback({err : 'Invalid password'});
             });
         }).catch(err => {
