@@ -8,9 +8,7 @@ class LoginController {
         };
 
         LoginModelExport.getJWTToken(loginDetails, (err, response) => {
-            console.log(err, response);
             if (err) {
-                console.log(err);
                 res.send(err);
             }
             res.send(response);
